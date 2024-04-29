@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://b06pkb7qcdlck"]
+
+[ext_resource type="Script" path="res://components/birdie/birdie.gd" id="1_hkmch"]
+[ext_resource type="Texture2D" uid="uid://moh1ik1yd3dq" path="res://assets/bird_tiles.png" id="2_tqaum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqfqi"]
+atlas = ExtResource("2_tqaum")
+region = Rect2(0, 0, 1200, 1200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qdx0"]
+atlas = ExtResource("2_tqaum")
+region = Rect2(1200, 0, 1200, 1200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6apua"]
+atlas = ExtResource("2_tqaum")
+region = Rect2(2400, 0, 1200, 1200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q6rb"]
+atlas = ExtResource("2_tqaum")
+region = Rect2(3600, 0, 1200, 1200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5p3eo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqfqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qdx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6apua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q6rb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2am02"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0epq"]
+radius = 9.03925
+height = 48.6614
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ifq6p"]
+radius = 11.0
+
+[node name="Birdie" type="CharacterBody2D"]
+script = ExtResource("1_hkmch")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7.15256e-07, -7.15256e-07)
+scale = Vector2(0.075, 0.075)
+sprite_frames = SubResource("SpriteFrames_5p3eo")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2am02")
+
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+position = Vector2(-14, 5)
+rotation = 1.40044
+shape = SubResource("CapsuleShape2D_s0epq")
+metadata/_edit_lock_ = true
+
+[node name="HeadCollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+position = Vector2(22, -6)
+shape = SubResource("CircleShape2D_ifq6p")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_area_entered"]

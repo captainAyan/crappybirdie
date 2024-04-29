@@ -1,0 +1,175 @@
+[gd_scene load_steps=4 format=3 uid="uid://ttnk4aquxgo0"]
+
+[ext_resource type="Script" path="res://scenes/menu_scene/menu_scene.gd" id="1_2ruur"]
+[ext_resource type="FontFile" uid="uid://kl7l1rnj2f6v" path="res://assets/Myfont-Regular.ttf" id="1_h8d5j"]
+[ext_resource type="Texture2D" uid="uid://bm5pe5wjjh12p" path="res://assets/nine_patch_botton_texture.png" id="3_mecw2"]
+
+[node name="MenuScene" type="Node2D"]
+script = ExtResource("1_2ruur")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 848.0
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameNameLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 64.0
+offset_bottom = 320.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_h8d5j")
+theme_override_font_sizes/font_size = 124
+text = "Crappy
+Birdie"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 320.0
+offset_right = 112.0
+offset_bottom = 352.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_h8d5j")
+theme_override_font_sizes/font_size = 28
+text = "By CaptainAyan"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="StartGameButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -432.0
+offset_right = 160.0
+offset_bottom = -312.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/StartGameButton"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 120.0
+texture = ExtResource("3_mecw2")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/StartGameButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_h8d5j")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="HighScoreButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -296.0
+offset_right = 208.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/HighScoreButton"]
+layout_mode = 0
+offset_right = 416.0
+offset_bottom = 120.0
+texture = ExtResource("3_mecw2")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/HighScoreButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_h8d5j")
+theme_override_font_sizes/font_size = 64
+text = "High Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -160.0
+offset_right = 152.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/QuitButton"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 120.0
+texture = ExtResource("3_mecw2")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_h8d5j")
+theme_override_font_sizes/font_size = 64
+text = "Quit
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CanvasLayer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HighScoreButton" to="." method="_on_high_score_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
