@@ -1,6 +1,9 @@
 extends Node2D
 
 var speed:int = 250
+var speed_increment:int = 10
+var speed_increment_score:int = 10
+
 var gameover:bool = false
 
 var mountain_distance = 10
@@ -76,3 +79,6 @@ func _on_birdie_death():
 func _on_birdie_score():
 	ScoreManager.update_current_score(ScoreManager.current_score + 1)
 	$UICanvasLayer/CurrentScoreLabel.text = str(ScoreManager.current_score)
+	
+	if ScoreManager.current_score % speed_increment_score == 0:
+		speed += speed_increment
