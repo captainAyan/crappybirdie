@@ -1,12 +1,43 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw68gmlhcl6mj"]
+[gd_scene load_steps=15 format=3 uid="uid://cw68gmlhcl6mj"]
 
 [ext_resource type="Script" path="res://scenes/game_scene/game_scene.gd" id="1_mv03a"]
+[ext_resource type="Texture2D" uid="uid://ca1yrloysch5f" path="res://assets/sun.png" id="2_jlln7"]
 [ext_resource type="PackedScene" uid="uid://dl6oldj7m8yqk" path="res://components/pipe/pipe.tscn" id="2_v0ok5"]
+[ext_resource type="Texture2D" uid="uid://bsd0amtte1g6u" path="res://assets/mountains.png" id="2_w8nyy"]
 [ext_resource type="PackedScene" uid="uid://b06pkb7qcdlck" path="res://components/birdie/birdie.tscn" id="3_gpcph"]
 [ext_resource type="FontFile" uid="uid://kl7l1rnj2f6v" path="res://assets/Myfont-Regular.ttf" id="4_ggjaw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4e4"]
 size = Vector2(480, 848)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vunny"]
+atlas = ExtResource("2_jlln7")
+region = Rect2(0, 0, 225, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la1ci"]
+atlas = ExtResource("2_jlln7")
+region = Rect2(225, 0, 225, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlsyn"]
+atlas = ExtResource("2_jlln7")
+region = Rect2(450, 0, 225, 225)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4j4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vunny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la1ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlsyn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnit4"]
 size = Vector2(480, 16)
@@ -29,6 +60,27 @@ metadata/_edit_lock_ = true
 position = Vector2(240, 424)
 shape = SubResource("RectangleShape2D_bj4e4")
 action = "ui_accept"
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(112, 144)
+sprite_frames = SubResource("SpriteFrames_g4j4e")
+autoplay = "default"
+frame_progress = 0.636846
+
+[node name="Background" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Mountains" type="Sprite2D" parent="Background"]
+position = Vector2(576, 672)
+scale = Vector2(2, 2)
+texture = ExtResource("2_w8nyy")
+metadata/_edit_lock_ = true
+
+[node name="Mountains2" type="Sprite2D" parent="Background"]
+position = Vector2(1664, 672)
+scale = Vector2(2, 2)
+texture = ExtResource("2_w8nyy")
 metadata/_edit_lock_ = true
 
 [node name="Bounds" type="StaticBody2D" parent="."]
@@ -78,6 +130,7 @@ metadata/_edit_lock_ = true
 position = Vector2(128, 224)
 collision_layer = 0
 collision_mask = 8
+metadata/_edit_lock_ = true
 
 [node name="RespawnArea2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -108,6 +161,7 @@ theme_override_font_sizes/font_size = 84
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="HighScoreLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
@@ -124,6 +178,7 @@ theme_override_font_sizes/font_size = 28
 text = "High Score 0"
 horizontal_alignment = 2
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [connection signal="death" from="Birdie" to="." method="_on_birdie_death"]
 [connection signal="score" from="Birdie" to="." method="_on_birdie_score"]

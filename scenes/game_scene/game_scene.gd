@@ -3,6 +3,8 @@ extends Node2D
 var speed:int = 250
 var gameover:bool = false
 
+var mountain_distance = 10
+
 enum Gap { SMALL, MID, BIG }
 var current_gap_state:Gap = Gap.MID
 
@@ -15,6 +17,15 @@ func _ready():
 func _process(delta):
 	if not gameover:
 		$PipeSetNode2D.position.x -= speed * delta
+		
+		$Background/Mountains.position.x -= speed/mountain_distance * delta
+		$Background/Mountains2.position.x -= speed/mountain_distance * delta
+		
+		if $Background/Mountains.position.x < -$Background/Mountains.texture.get_width()*2:
+			$Background/Mountains.position.x = 1024
+		if $Background/Mountains2.position.x < -$Background/Mountains2.texture.get_width()*2:
+			$Background/Mountains2.position.x = 1024
+
 
 func _on_respawn_area_2d_area_entered(area):
 	respawn_pipes()
@@ -56,7 +67,6 @@ func respawn_pipes():
 
 
 func _on_birdie_death():
-	#highscore_update(score)
 	get_tree().change_scene_to_file("res://scenes/gameover_scene/gameover_scene.tscn")
 	
 	ScoreManager.update_high_score()
