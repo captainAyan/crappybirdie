@@ -27,7 +27,7 @@ ScoreManager="*res://globals/score_manager.gd"
 window/size/viewport_width=480
 window/size/viewport_height=848
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="ignore"
 window/handheld/orientation=1
 window/emulate_touch_from_mouse=false
 
@@ -41,6 +41,10 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="pipe"
 2d_physics/layer_3="score"
 2d_physics/layer_4="bound"
+
+[physics]
+
+2d/transparent_background=false
 
 [rendering]
 

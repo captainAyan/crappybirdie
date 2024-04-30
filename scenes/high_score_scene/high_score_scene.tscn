@@ -6,14 +6,21 @@
 [node name="HighScoreScene" type="Node2D"]
 script = ExtResource("1_ymhtu")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 480.0
-offset_bottom = 848.0
+[node name="BackgroundColorCanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BackgroundColorRect" type="ColorRect" parent="BackgroundColorCanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GameNameLabel" type="Label" parent="CanvasLayer"]
+[node name="GameNameLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 64.0
@@ -28,7 +35,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HighScore1stPositionLabel" type="Label" parent="CanvasLayer"]
+[node name="HighScore1stPositionLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 384.0
@@ -43,7 +50,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HighScore2ndPositionLabel" type="Label" parent="CanvasLayer"]
+[node name="HighScore2ndPositionLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 432.0
@@ -57,7 +64,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HighScore3rdPositionLabel" type="Label" parent="CanvasLayer"]
+[node name="HighScore3rdPositionLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 480.0
@@ -71,7 +78,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HighScore4thPositionLabel" type="Label" parent="CanvasLayer"]
+[node name="HighScore4thPositionLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 528.0
@@ -85,7 +92,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HighScore5thPositionLabel" type="Label" parent="CanvasLayer"]
+[node name="HighScore5thPositionLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 576.0

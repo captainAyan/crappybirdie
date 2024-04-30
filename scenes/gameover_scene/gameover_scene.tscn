@@ -7,14 +7,21 @@
 [node name="GameoverScene" type="Node2D"]
 script = ExtResource("1_e2l8b")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 480.0
-offset_bottom = 848.0
+[node name="BackgroundColorCanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BackgroundColorRect" type="ColorRect" parent="BackgroundColorCanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GameNameLabel" type="Label" parent="CanvasLayer"]
+[node name="GameNameLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 64.0
@@ -29,7 +36,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="YourScoreLabel" type="Label" parent="CanvasLayer"]
+[node name="YourScoreLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 384.0
@@ -43,7 +50,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HighScoreLabel" type="Label" parent="CanvasLayer"]
+[node name="HighScoreLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 448.0
@@ -57,7 +64,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="RestartGameButton" type="TextureButton" parent="CanvasLayer"]
+[node name="RestartGameButton" type="TextureButton" parent="UICanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -72,7 +79,7 @@ grow_vertical = 0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/RestartGameButton"]
+[node name="NinePatchRect" type="NinePatchRect" parent="UICanvasLayer/RestartGameButton"]
 layout_mode = 0
 offset_right = 336.0
 offset_bottom = 120.0
@@ -83,7 +90,7 @@ patch_margin_right = 24
 patch_margin_bottom = 24
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/RestartGameButton"]
+[node name="Label" type="Label" parent="UICanvasLayer/RestartGameButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,4 +105,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="CanvasLayer/RestartGameButton" to="." method="_on_restart_game_button_pressed"]
+[connection signal="pressed" from="UICanvasLayer/RestartGameButton" to="." method="_on_restart_game_button_pressed"]

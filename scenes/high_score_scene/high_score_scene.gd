@@ -1,11 +1,11 @@
 extends Node2D
 
 func _ready():
-	$CanvasLayer/HighScore1stPositionLabel.text = "1st Position " + str(ScoreManager.high_scores[0])
-	$CanvasLayer/HighScore2ndPositionLabel.text = "2nd Position " + str(ScoreManager.high_scores[1])
-	$CanvasLayer/HighScore3rdPositionLabel.text = "3rd Position " + str(ScoreManager.high_scores[2])
-	$CanvasLayer/HighScore4thPositionLabel.text = "4th Position " + str(ScoreManager.high_scores[3])
-	$CanvasLayer/HighScore5thPositionLabel.text = "5th Position " + str(ScoreManager.high_scores[4])
+	$UICanvasLayer/HighScore1stPositionLabel.text = "1st Position " + str(ScoreManager.high_scores[0])
+	$UICanvasLayer/HighScore2ndPositionLabel.text = "2nd Position " + str(ScoreManager.high_scores[1])
+	$UICanvasLayer/HighScore3rdPositionLabel.text = "3rd Position " + str(ScoreManager.high_scores[2])
+	$UICanvasLayer/HighScore4thPositionLabel.text = "4th Position " + str(ScoreManager.high_scores[3])
+	$UICanvasLayer/HighScore5thPositionLabel.text = "5th Position " + str(ScoreManager.high_scores[4])
 
 
 func _notification(what):

@@ -11,8 +11,8 @@ var current_gap_state:Gap = Gap.MID
 func _ready():
 	respawn_pipes()
 	
-	$CanvasLayer/CurrentScoreLabel.text = str(ScoreManager.current_score)
-	$CanvasLayer/HighScoreLabel.text = "High Score " + str(ScoreManager.high_scores[0])
+	$UICanvasLayer/CurrentScoreLabel.text = str(ScoreManager.current_score)
+	$UICanvasLayer/HighScoreLabel.text = "High Score " + str(ScoreManager.high_scores[0])
 
 func _process(delta):
 	if not gameover:
@@ -75,4 +75,4 @@ func _on_birdie_death():
 
 func _on_birdie_score():
 	ScoreManager.update_current_score(ScoreManager.current_score + 1)
-	$CanvasLayer/CurrentScoreLabel.text = str(ScoreManager.current_score)
+	$UICanvasLayer/CurrentScoreLabel.text = str(ScoreManager.current_score)
