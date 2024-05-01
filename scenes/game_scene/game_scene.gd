@@ -72,10 +72,9 @@ func respawn_pipes():
 
 
 func _on_birdie_death():
-	get_tree().change_scene_to_file("res://scenes/gameover_scene/gameover_scene.tscn")
-	
 	ScoreManager.update_high_score()
 	ScoreManager.save_scores()
+	get_tree().change_scene_to_file("res://scenes/gameover_scene/gameover_scene.tscn")
 
 
 func _on_birdie_score():
@@ -84,9 +83,4 @@ func _on_birdie_score():
 	
 	if ScoreManager.current_score % speed_increment_score == 0:
 		speed += speed_increment
-
-
-func _on_mute_button_pressed():
-	print("mute button pressed")
-
 

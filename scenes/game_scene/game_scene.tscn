@@ -77,6 +77,7 @@ position = Vector2(112, 224)
 sprite_frames = SubResource("SpriteFrames_g4j4e")
 autoplay = "default"
 frame_progress = 0.636846
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -156,10 +157,12 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 824)
 collision_layer = 2
 collision_mask = 0
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneArea2D"]
 position = Vector2(128, 4)
 shape = SubResource("RectangleShape2D_b1vki")
+metadata/_edit_lock_ = true
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -198,6 +201,7 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="MuteButton" parent="." instance=ExtResource("7_lnful")]
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="death" from="Birdie" to="." method="_on_birdie_death"]
