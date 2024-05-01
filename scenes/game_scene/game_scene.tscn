@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://cw68gmlhcl6mj"]
 
 [ext_resource type="Script" path="res://scenes/game_scene/game_scene.gd" id="1_mv03a"]
-[ext_resource type="Texture2D" uid="uid://ca1yrloysch5f" path="res://assets/sun.png" id="2_jlln7"]
+[ext_resource type="Texture2D" uid="uid://ca1yrloysch5f" path="res://assets/sprites/sun_sprite.png" id="2_jlln7"]
 [ext_resource type="PackedScene" uid="uid://dl6oldj7m8yqk" path="res://components/pipe/pipe.tscn" id="2_v0ok5"]
-[ext_resource type="Texture2D" uid="uid://bsd0amtte1g6u" path="res://assets/mountains.png" id="2_w8nyy"]
+[ext_resource type="Texture2D" uid="uid://bsd0amtte1g6u" path="res://assets/images/mountains.png" id="2_w8nyy"]
 [ext_resource type="PackedScene" uid="uid://b06pkb7qcdlck" path="res://components/birdie/birdie.tscn" id="3_gpcph"]
 [ext_resource type="FontFile" uid="uid://kl7l1rnj2f6v" path="res://assets/Myfont-Regular.ttf" id="4_ggjaw"]
 

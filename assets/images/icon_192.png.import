@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://moh1ik1yd3dq"
-path="res://.godot/imported/bird_tiles.png-713961ff5513e64787f65304f38eab59.ctex"
+uid="uid://c24pstsplt1d2"
+path="res://.godot/imported/icon_192.png-775a588993afae377c03108ebc9593cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bird_tiles.png"
-dest_files=["res://.godot/imported/bird_tiles.png-713961ff5513e64787f65304f38eab59.ctex"]
+source_file="res://assets/images/icon_192.png"
+dest_files=["res://.godot/imported/icon_192.png-775a588993afae377c03108ebc9593cc.ctex"]
 
 [params]
 

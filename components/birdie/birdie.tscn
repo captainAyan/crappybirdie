@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b06pkb7qcdlck"]
 
 [ext_resource type="Script" path="res://components/birdie/birdie.gd" id="1_hkmch"]
-[ext_resource type="Texture2D" uid="uid://moh1ik1yd3dq" path="res://assets/bird_tiles.png" id="2_tqaum"]
+[ext_resource type="Texture2D" uid="uid://moh1ik1yd3dq" path="res://assets/sprites/bird_sprite.png" id="2_tqaum"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqfqi"]
 atlas = ExtResource("2_tqaum")
