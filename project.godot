@@ -17,7 +17,7 @@ config/custom_user_dir_name="crappybirdie"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(1, 1, 1, 1)
-boot_splash/image="res://assets/splash.png"
+boot_splash/image="res://assets/images/splash.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
@@ -43,7 +43,7 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_1="birdie"
-2d_physics/layer_2="pipe"
+2d_physics/layer_2="hitbox"
 2d_physics/layer_3="score"
 2d_physics/layer_4="bound"
 

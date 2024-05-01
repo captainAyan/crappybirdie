@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b06pkb7qcdlck"]
+[gd_scene load_steps=12 format=3 uid="uid://b06pkb7qcdlck"]
 
 [ext_resource type="Script" path="res://components/birdie/birdie.gd" id="1_hkmch"]
 [ext_resource type="Texture2D" uid="uid://moh1ik1yd3dq" path="res://assets/sprites/bird_sprite.png" id="2_tqaum"]
@@ -48,6 +48,9 @@ height = 48.6614
 [sub_resource type="CircleShape2D" id="CircleShape2D_ifq6p"]
 radius = 11.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yspbu"]
+size = Vector2(16, 16)
+
 [node name="Birdie" type="CharacterBody2D"]
 script = ExtResource("1_hkmch")
 
@@ -61,19 +64,28 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2am02")
 
-[node name="HitBoxArea2D" type="Area2D" parent="."]
+[node name="HurtBoxArea2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 6
+collision_mask = 2
 
-[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="HurtBoxArea2D"]
 position = Vector2(-14, 5)
 rotation = 1.40044
 shape = SubResource("CapsuleShape2D_s0epq")
 metadata/_edit_lock_ = true
 
-[node name="HeadCollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+[node name="HeadCollisionShape2D" type="CollisionShape2D" parent="HurtBoxArea2D"]
 position = Vector2(22, -6)
 shape = SubResource("CircleShape2D_ifq6p")
 metadata/_edit_lock_ = true
 
-[connection signal="area_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_area_entered"]
+[node name="PointCollectorArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointCollectorArea2D"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_yspbu")
+
+[connection signal="area_entered" from="HurtBoxArea2D" to="." method="_on_hurt_box_area_2d_area_entered"]
+[connection signal="area_entered" from="PointCollectorArea2D" to="." method="_on_point_collector_area_2d_area_entered"]

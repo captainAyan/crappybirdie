@@ -20,8 +20,9 @@ func _process(delta):
 	move_and_slide()
 
 
-func _on_hit_box_area_2d_area_entered(area):
-	if area is Pipe:
-		death.emit()
-	elif area.name == "ScoreArea2D":
-		score.emit()
+func _on_hurt_box_area_2d_area_entered(area):
+	death.emit()
+
+
+func _on_point_collector_area_2d_area_entered(area):
+	score.emit()
