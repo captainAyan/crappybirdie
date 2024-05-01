@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cw68gmlhcl6mj"]
+[gd_scene load_steps=17 format=3 uid="uid://cw68gmlhcl6mj"]
 
 [ext_resource type="Script" path="res://scenes/game_scene/game_scene.gd" id="1_mv03a"]
 [ext_resource type="Texture2D" uid="uid://ca1yrloysch5f" path="res://assets/sprites/sun_sprite.png" id="2_jlln7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bsd0amtte1g6u" path="res://assets/images/mountains.png" id="2_w8nyy"]
 [ext_resource type="PackedScene" uid="uid://b06pkb7qcdlck" path="res://components/birdie/birdie.tscn" id="3_gpcph"]
 [ext_resource type="FontFile" uid="uid://kl7l1rnj2f6v" path="res://assets/Myfont-Regular.ttf" id="4_ggjaw"]
+[ext_resource type="PackedScene" uid="uid://b760t0vhgbeay" path="res://components/mute_button/mute_button.tscn" id="7_lnful"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4e4"]
 size = Vector2(480, 848)
@@ -69,11 +70,10 @@ metadata/_edit_lock_ = true
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2(240, 424)
 shape = SubResource("RectangleShape2D_bj4e4")
-action = "ui_accept"
 metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(112, 144)
+[node name="SunAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(112, 224)
 sprite_frames = SubResource("SpriteFrames_g4j4e")
 autoplay = "default"
 frame_progress = 0.636846
@@ -152,6 +152,15 @@ position = Vector2(-160, -64)
 shape = SubResource("RectangleShape2D_q35ve")
 metadata/_edit_lock_ = true
 
+[node name="DeathZoneArea2D" type="Area2D" parent="."]
+position = Vector2(0, 824)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneArea2D"]
+position = Vector2(128, 4)
+shape = SubResource("RectangleShape2D_b1vki")
+
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -188,15 +197,9 @@ horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="DeathZoneArea2D" type="Area2D" parent="."]
-position = Vector2(0, 824)
-collision_layer = 2
-collision_mask = 0
+[node name="MuteButton" parent="." instance=ExtResource("7_lnful")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneArea2D"]
-position = Vector2(128, 4)
-shape = SubResource("RectangleShape2D_b1vki")
-
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="death" from="Birdie" to="." method="_on_birdie_death"]
 [connection signal="score" from="Birdie" to="." method="_on_birdie_score"]
 [connection signal="area_entered" from="RespawnArea2D" to="." method="_on_respawn_area_2d_area_entered"]

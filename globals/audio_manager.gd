@@ -1,6 +1,7 @@
 extends Node
 
 var music_player:AudioStreamPlayer
+var is_mute:bool = false
 
 func _ready():
 	music_player = AudioStreamPlayer.new()
@@ -16,7 +17,9 @@ func _on_audio_finished():
 	music_player.play()
 
 func mute():
+	is_mute = true
 	music_player.volume_db = -100
 
 func unmute():
+	is_mute = false
 	music_player.volume_db = 0

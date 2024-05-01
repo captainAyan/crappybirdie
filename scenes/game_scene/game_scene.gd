@@ -16,6 +16,9 @@ func _ready():
 	$UICanvasLayer/CurrentScoreLabel.text = str(ScoreManager.current_score)
 	$UICanvasLayer/HighScoreLabel.text = "High Score " + str(ScoreManager.high_scores[0])
 
+func _on_touch_screen_button_pressed():
+	$Birdie.jump()
+
 func _process(delta):
 	if not gameover:
 		$PipeSetNode2D.position.x -= speed * delta
@@ -81,3 +84,9 @@ func _on_birdie_score():
 	
 	if ScoreManager.current_score % speed_increment_score == 0:
 		speed += speed_increment
+
+
+func _on_mute_button_pressed():
+	print("mute button pressed")
+
+

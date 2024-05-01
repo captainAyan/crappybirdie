@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b760t0vhgbeay"]
+
+[ext_resource type="Script" path="res://components/mute_button/mute_button.gd" id="1_dus7j"]
+[ext_resource type="Texture2D" uid="uid://bm5pe5wjjh12p" path="res://assets/ui/nine_patch_botton_texture.png" id="2_3oaqu"]
+[ext_resource type="Texture2D" uid="uid://emnhwc65r3kg" path="res://assets/ui/unmute.png" id="3_6w542"]
+[ext_resource type="Texture2D" uid="uid://dd1ia3oxjcvl1" path="res://assets/ui/mute.png" id="4_s305g"]
+
+[node name="MuteButton" type="TextureButton"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 112.0
+script = ExtResource("1_dus7j")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("2_3oaqu")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="UnmuteSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(48, 48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_6w542")
+
+[node name="MuteSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(48, 48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_s305g")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

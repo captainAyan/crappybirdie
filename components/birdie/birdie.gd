@@ -13,12 +13,10 @@ func _process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept"):
-		velocity.y = JUMP_VELOCITY
-	
 	move_and_slide()
 
+func jump():
+	velocity.y = JUMP_VELOCITY
 
 func _on_hurt_box_area_2d_area_entered(area):
 	death.emit()
