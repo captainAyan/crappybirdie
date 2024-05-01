@@ -123,6 +123,7 @@ patch_margin_left = 24
 patch_margin_top = 24
 patch_margin_right = 24
 patch_margin_bottom = 24
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UICanvasLayer/MenuButton"]
 layout_mode = 1
@@ -137,6 +138,7 @@ theme_override_font_sizes/font_size = 64
 text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="UICanvasLayer/RestartGameButton" to="." method="_on_restart_game_button_pressed"]
 [connection signal="pressed" from="UICanvasLayer/MenuButton" to="." method="_on_menu_button_pressed"]
