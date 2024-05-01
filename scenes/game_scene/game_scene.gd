@@ -3,10 +3,9 @@ extends Node2D
 var speed:int = 250
 var speed_increment:int = 10
 var speed_increment_score:int = 10
+var mountain_distance = 10
 
 var gameover:bool = false
-
-var mountain_distance = 10
 
 enum Gap { SMALL, MID, BIG }
 var current_gap_state:Gap = Gap.MID

@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqe15vfr2i477"]
+[gd_scene load_steps=5 format=3 uid="uid://dqe15vfr2i477"]
 
 [ext_resource type="FontFile" uid="uid://kl7l1rnj2f6v" path="res://assets/Myfont-Regular.ttf" id="1_7t6pa"]
 [ext_resource type="Script" path="res://scenes/gameover_scene/gameover_scene.gd" id="1_e2l8b"]
 [ext_resource type="Texture2D" uid="uid://bm5pe5wjjh12p" path="res://assets/nine_patch_botton_texture.png" id="2_8a15w"]
+[ext_resource type="Texture2D" uid="uid://bvi4uix7xs3oa" path="res://assets/restart.png" id="4_ecpkh"]
 
 [node name="GameoverScene" type="Node2D"]
 script = ExtResource("1_e2l8b")
+metadata/_edit_horizontal_guides_ = [808.0, 688.0, 656.0]
+metadata/_edit_vertical_guides_ = [240.0]
 
 [node name="BackgroundColorCanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -70,19 +73,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.0
-offset_top = -160.0
-offset_right = 168.0
-offset_bottom = -40.0
+offset_left = -48.0
+offset_top = -288.0
+offset_right = 48.0
+offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 0
-metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UICanvasLayer/RestartGameButton"]
 layout_mode = 0
-offset_right = 336.0
-offset_bottom = 120.0
+offset_right = 96.0
+offset_bottom = 96.0
 texture = ExtResource("2_8a15w")
 patch_margin_left = 24
 patch_margin_top = 24
@@ -90,7 +93,38 @@ patch_margin_right = 24
 patch_margin_bottom = 24
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UICanvasLayer/RestartGameButton"]
+[node name="Restart" type="Sprite2D" parent="UICanvasLayer/RestartGameButton"]
+position = Vector2(48, 48)
+scale = Vector2(0.571429, 0.55814)
+texture = ExtResource("4_ecpkh")
+metadata/_edit_lock_ = true
+
+[node name="MenuButton" type="TextureButton" parent="UICanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UICanvasLayer/MenuButton"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 120.0
+texture = ExtResource("2_8a15w")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="Label" type="Label" parent="UICanvasLayer/MenuButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,9 +134,9 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_7t6pa")
 theme_override_font_sizes/font_size = 64
-text = "Restart"
+text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="UICanvasLayer/RestartGameButton" to="." method="_on_restart_game_button_pressed"]
+[connection signal="pressed" from="UICanvasLayer/MenuButton" to="." method="_on_menu_button_pressed"]

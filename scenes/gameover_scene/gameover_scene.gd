@@ -5,6 +5,9 @@ func _ready():
 	ScoreManager.update_current_score(0)
 	$UICanvasLayer/HighScoreLabel.text = "High Score " + str(ScoreManager.high_scores[0])
 
+func _on_menu_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu_scene/menu_scene.tscn")
+
 func _on_restart_game_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/game_scene/game_scene.tscn")
 

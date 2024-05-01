@@ -12,3 +12,7 @@ func _notification(what):
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		get_tree().change_scene_to_file("res://scenes/menu_scene/menu_scene.tscn")
 		#get_tree().quit() # default behavior
+
+
+func _on_menu_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu_scene/menu_scene.tscn")

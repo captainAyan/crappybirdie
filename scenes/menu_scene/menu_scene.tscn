@@ -6,6 +6,8 @@
 
 [node name="MenuScene" type="Node2D"]
 script = ExtResource("1_2ruur")
+metadata/_edit_vertical_guides_ = [400.0, 80.0, 32.0, 448.0, 240.0]
+metadata/_edit_horizontal_guides_ = [536.0, 552.0, 672.0, 688.0, 416.0, 808.0]
 
 [node name="BackgroundColorCanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -111,14 +113,15 @@ metadata/_edit_lock_ = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UICanvasLayer/HighScoreButton"]
 layout_mode = 0
-offset_right = 416.0
+offset_left = 416.0
+offset_right = 832.0
 offset_bottom = 120.0
+scale = Vector2(-1, 1)
 texture = ExtResource("3_mecw2")
 patch_margin_left = 24
 patch_margin_top = 24
 patch_margin_right = 24
 patch_margin_bottom = 24
-metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UICanvasLayer/HighScoreButton"]
 layout_mode = 1
@@ -130,7 +133,8 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_h8d5j")
 theme_override_font_sizes/font_size = 64
-text = "High Score"
+text = "High Scores
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -141,9 +145,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.0
+offset_left = -160.0
 offset_top = -160.0
-offset_right = 152.0
+offset_right = 160.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -152,8 +156,10 @@ metadata/_edit_lock_ = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UICanvasLayer/QuitButton"]
 layout_mode = 0
+offset_top = 120.0
 offset_right = 320.0
-offset_bottom = 120.0
+offset_bottom = 240.0
+scale = Vector2(1, -1)
 texture = ExtResource("3_mecw2")
 patch_margin_left = 24
 patch_margin_top = 24

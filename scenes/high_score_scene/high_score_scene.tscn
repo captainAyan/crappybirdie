@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://wj1pfg1v5lkb"]
+[gd_scene load_steps=4 format=3 uid="uid://wj1pfg1v5lkb"]
 
 [ext_resource type="FontFile" uid="uid://kl7l1rnj2f6v" path="res://assets/Myfont-Regular.ttf" id="1_b36y5"]
 [ext_resource type="Script" path="res://scenes/high_score_scene/high_score_scene.gd" id="1_ymhtu"]
+[ext_resource type="Texture2D" uid="uid://bm5pe5wjjh12p" path="res://assets/nine_patch_botton_texture.png" id="3_7r8eq"]
 
 [node name="HighScoreScene" type="Node2D"]
 script = ExtResource("1_ymhtu")
+metadata/_edit_vertical_guides_ = [240.0]
+metadata/_edit_horizontal_guides_ = [808.0]
 
 [node name="BackgroundColorCanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -33,7 +36,6 @@ text = "High
 Scores"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="HighScore1stPositionLabel" type="Label" parent="UICanvasLayer"]
 anchors_preset = 10
@@ -105,3 +107,44 @@ text = "5th Position 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="MenuButton" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 688.0
+offset_right = 400.0
+offset_bottom = 808.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuButton"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 120.0
+texture = ExtResource("3_7r8eq")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="Label" type="Label" parent="MenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_b36y5")
+theme_override_font_sizes/font_size = 64
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
