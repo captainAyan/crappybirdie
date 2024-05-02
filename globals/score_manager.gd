@@ -5,13 +5,15 @@ var current_score:int = 0
 
 var file_name = "user://game_data.save"
 
+func _ready():
+	print("loaded score")
+	load_scores()
+
 func update_current_score(score: int):
 	current_score = score
 
-
 func update_high_score():
 	high_scores = _add_new_score(current_score, high_scores)
-
 
 # Function to add a new score to the high scores array
 func _add_new_score(new_score: int, high_scores: Array):
