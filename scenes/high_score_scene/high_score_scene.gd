@@ -15,4 +15,5 @@ func _notification(what):
 
 
 func _on_menu_button_pressed():
+	AudioManager.play_click_sound()
 	get_tree().change_scene_to_file("res://scenes/menu_scene/menu_scene.tscn")

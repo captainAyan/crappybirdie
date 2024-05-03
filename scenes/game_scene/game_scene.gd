@@ -6,6 +6,7 @@ var speed_increment_score:int = 10
 var mountain_distance = 10
 
 var gameover:bool = false
+var high_score_passed = false
 
 enum Gap { SMALL, MID, BIG }
 var current_gap_state:Gap = Gap.MID
@@ -17,6 +18,7 @@ func _ready():
 	$UICanvasLayer/HighScoreLabel.text = "High Score " + str(ScoreManager.high_scores[0])
 
 func _on_touch_screen_button_pressed():
+	AudioManager.play_jump_sound()
 	$Birdie.jump()
 
 func _process(delta):
@@ -72,6 +74,7 @@ func respawn_pipes():
 
 
 func _on_birdie_death():
+	AudioManager.play_death_sound()
 	ScoreManager.update_high_score()
 	ScoreManager.save_scores()
 	get_tree().change_scene_to_file("res://scenes/gameover_scene/gameover_scene.tscn")
@@ -84,3 +87,6 @@ func _on_birdie_score():
 	if ScoreManager.current_score % speed_increment_score == 0:
 		speed += speed_increment
 
+	if ScoreManager.high_scores[0] < ScoreManager.current_score and not high_score_passed:
+		AudioManager.play_high_score_sound()
+		high_score_passed = true

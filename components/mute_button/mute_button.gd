@@ -9,6 +9,7 @@ func _ready():
 
 
 func _on_pressed():
+	AudioManager.play_click_sound()
 	if AudioManager.is_mute:
 		AudioManager.unmute()
 		$MuteSprite.show()
