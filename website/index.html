@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Crappy Birdie</title>
+  <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+
+  <div class='container'>
+
+    <div class="section" style="min-height: 90vh">
+      <canvas id="birdie_canvas" width="80px" height="80px"></canvas>
+      <h1 class="title">
+        Crappy <br />
+        Birdie
+      </h1>
+
+      <h1 class="description">
+        By CaptainAyan
+      </h1>
+
+      <a id="download_link">
+        <img src='download_button.png' alt='Download button' class="btn">
+      </a>
+
+      <a href='https://github.com/captainayan/crappybirdie' target="_blank" style="margin: 12px; word-spacing: 6px; color:black;">Github Repo</a>
+
+    </div>
+  </div>
+
+  <canvas id="sun_canvas"></canvas>
+  <img src='mountains.png' alt='' id="mountains">
+
+  <script>
+    const sun_canvas = document.getElementById('sun_canvas')
+    const sun_ctx = sun_canvas.getContext("2d")
+    const sun_spriteImage = new Image();
+    sun_spriteImage.src = 'sun_sprite.png';
+    let sun_currentFrame = 0;
+
+    function sun_update() {
+      sun_ctx.drawImage(sun_spriteImage, 225 * sun_currentFrame, 0, 225, 225, 0,
+      0, sun_canvas.width, sun_canvas.height)
+      sun_currentFrame = sun_currentFrame == 2 ? 0 : sun_currentFrame + 1
+      setTimeout(sun_update, 500);
+    }
+
+    sun_spriteImage.onload = () => sun_update();
+
+
+
+    const birdie_canvas = document.getElementById('birdie_canvas')
+    const birdie_ctx = birdie_canvas.getContext("2d")
+    const birdie_spriteImage = new Image();
+    birdie_spriteImage.src = 'birdie_sprite.png';
+    let birdie_currentFrame = 0;
+
+    function birdie_update() {
+      birdie_ctx.clearRect(0,0, 100, 100)
+
+      birdie_ctx.drawImage(birdie_spriteImage, (1200 * birdie_currentFrame),
+      0, 1200, 1200, 0, 0, birdie_canvas.width, birdie_canvas.height)
+
+      birdie_currentFrame = birdie_currentFrame == 3 ? 0 : birdie_currentFrame + 1
+      setTimeout(birdie_update, 200);
+    }
+
+    birdie_spriteImage.onload = () => birdie_update();
+  </script>
+
+  <script>
+    (async () => {
+      const rawResponse = await fetch(
+      'https://api.github.com/repos/captainAyan/crappybirdie/releases/latest',
+      {method: 'GET'}
+      );
+      const content = await rawResponse.json();
+      let version_name = content.tag_name;
+      let download_url = `https://github.com/captainAyan/crappybirdie/releases/download/${version_name}/CrappyBirdie.apk`;
+      document.getElementById("download_link").href = download_url;
+    })();
+  </script>
+</body>
+</html>
