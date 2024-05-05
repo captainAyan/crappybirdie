@@ -11,19 +11,28 @@ var high_score_passed = false
 enum Gap { SMALL, MID, BIG }
 var current_gap_state:Gap = Gap.MID
 
+var is_tutorial_state = true
+
 func _ready():
-	respawn_pipes()
-	
 	$UICanvasLayer/CurrentScoreLabel.text = str(ScoreManager.current_score)
 	$UICanvasLayer/HighScoreLabel.text = "High Score " + str(ScoreManager.high_scores[0])
 
 func _on_touch_screen_button_pressed():
 	AudioManager.play_jump_sound()
 	$Birdie.jump()
+	
+	if is_tutorial_state:
+		$Birdie.is_moving = true
+		respawn_pipes()
+		
+		$TutorialNode2D.hide()
+		is_tutorial_state = false
+
 
 func _process(delta):
 	if not gameover:
-		$PipeSetNode2D.position.x -= speed * delta
+		if not is_tutorial_state:
+			$PipeSetNode2D.position.x -= speed * delta
 		
 		$Background/Mountains.position.x -= speed/mountain_distance * delta
 		$Background/Mountains2.position.x -= speed/mountain_distance * delta
