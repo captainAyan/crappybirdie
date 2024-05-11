@@ -5,6 +5,8 @@
   </p>
 </p>
 
+[![Screenshot](https://raw.githubusercontent.com/captainAyan/crappybirdie/main/docs/poster.png)]()
+
 ## Getting Started
 - Clone the repo
 - Launch using Godot Editor
